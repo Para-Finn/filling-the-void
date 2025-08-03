@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2ajya32mqor3"]
+
+[ext_resource type="Texture2D" uid="uid://dj3j1vcrktf23" path="res://Assets/FTVTileMap.png" id="1_hdsw4"]
+[ext_resource type="Script" uid="uid://d683qofyyvnm" path="res://Scripts/collecting_wood.gd" id="2_kcic5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3q1xk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs0s8"]
+atlas = ExtResource("1_hdsw4")
+region = Rect2(14.6148, 513.653, 96.2702, 191.347)
+
+[node name="TreeCollecter" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_right = 104.0
+offset_bottom = 199.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3q1xk")
+icon = SubResource("AtlasTexture_cs0s8")
+flat = true
+script = ExtResource("2_kcic5")
+
+[node name="Right" type="Marker2D" parent="Button"]
+position = Vector2(113, 162)
+
+[node name="Left" type="Marker2D" parent="Button"]
+position = Vector2(1, 162)
+
+[node name="Middle" type="Marker2D" parent="Button"]
+position = Vector2(54, 208)
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

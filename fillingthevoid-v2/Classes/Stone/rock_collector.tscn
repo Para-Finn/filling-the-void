@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://currmqsh8ik06"]
+
+[ext_resource type="Texture2D" uid="uid://dj3j1vcrktf23" path="res://Assets/FTVTileMap.png" id="1_yqkl8"]
+[ext_resource type="Script" uid="uid://beg7xcwypq8ad" path="res://Scripts/collecting_stone.gd" id="2_i7qnw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sg6dv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of5aa"]
+atlas = ExtResource("1_yqkl8")
+region = Rect2(386.52, 643.902, 124.82, 61.0979)
+
+[node name="RockCollector" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sg6dv")
+icon = SubResource("AtlasTexture_of5aa")
+flat = true
+script = ExtResource("2_i7qnw")
+
+[node name="Top" type="Marker2D" parent="Button"]
+position = Vector2(147, 17)
+
+[node name="Right" type="Marker2D" parent="Button"]
+position = Vector2(120, 84)
+
+[node name="Left" type="Marker2D" parent="Button"]
+position = Vector2(5, 87)
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

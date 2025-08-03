@@ -1,0 +1,136 @@
+[gd_scene load_steps=18 format=3 uid="uid://dbiggbqcb64hj"]
+
+[ext_resource type="Script" uid="uid://q3ej5oqmmqqr" path="res://Scripts/player.gd" id="1_hikbb"]
+[ext_resource type="Texture2D" uid="uid://dfgmxh0hhoosk" path="res://Assets/Charaters/PlayerIdle.png" id="1_sj6yc"]
+[ext_resource type="Texture2D" uid="uid://cqgdxvoxswqv7" path="res://Assets/Charaters/PlayerWalk.png" id="2_j6gv6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kdtn"]
+size = Vector2(40, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4xkh"]
+atlas = ExtResource("1_sj6yc")
+region = Rect2(0, 0, 1046, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvxsg"]
+atlas = ExtResource("1_sj6yc")
+region = Rect2(1046, 0, 1046, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rbst"]
+atlas = ExtResource("1_sj6yc")
+region = Rect2(2092, 0, 1046, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i78lk"]
+atlas = ExtResource("1_sj6yc")
+region = Rect2(0, 422, 1046, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6o68"]
+atlas = ExtResource("1_sj6yc")
+region = Rect2(1046, 422, 1046, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k15yg"]
+atlas = ExtResource("1_sj6yc")
+region = Rect2(2092, 422, 1046, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2htv4"]
+atlas = ExtResource("1_sj6yc")
+region = Rect2(0, 844, 1046, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nxjv"]
+atlas = ExtResource("1_sj6yc")
+region = Rect2(1046, 844, 1046, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg0xo"]
+atlas = ExtResource("1_sj6yc")
+region = Rect2(2092, 844, 1046, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w71w"]
+atlas = ExtResource("2_j6gv6")
+region = Rect2(0, 0, 1048, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3c46"]
+atlas = ExtResource("2_j6gv6")
+region = Rect2(1048, 0, 1048, 422)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjgx6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4xkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvxsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rbst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i78lk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6o68")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_k15yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2htv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nxjv")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_wg0xo")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w71w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3c46")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3u8s"]
+size = Vector2(53, 23)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_hikbb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-0.0333862, -0.500088)
+shape = SubResource("RectangleShape2D_4kdtn")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.96661, -1.00009)
+scale = Vector2(0.118483, 0.118483)
+sprite_frames = SubResource("SpriteFrames_bjgx6")
+animation = &"Idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 0)
+zoom = Vector2(1.8, 1.8)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6.5, 1.5)
+shape = SubResource("RectangleShape2D_a3u8s")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)

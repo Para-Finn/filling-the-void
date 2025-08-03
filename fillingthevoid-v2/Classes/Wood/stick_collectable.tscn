@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6it7yrbo7omi"]
+
+[ext_resource type="Script" uid="uid://g3ncd846046e" path="res://Scripts/stick_collectable.gd" id="1_stgn1"]
+[ext_resource type="Texture2D" uid="uid://dj3j1vcrktf23" path="res://Assets/FTVTileMap.png" id="2_rvhan"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jojgu"]
+atlas = ExtResource("2_rvhan")
+region = Rect2(389.362, 577.735, 53.4363, 55.5568)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1r0q"]
+size = Vector2(21, 21)
+
+[node name="Stick" type="Area2D"]
+script = ExtResource("1_stgn1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, 2.38419e-07)
+scale = Vector2(0.448113, 0.448113)
+texture = SubResource("AtlasTexture_jojgu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_m1r0q")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

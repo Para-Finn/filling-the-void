@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3ib8k51o3wdd"]
+
+[ext_resource type="Texture2D" uid="uid://cxrl64hqtwgx8" path="res://Assets/Buildings/LongHouse.png" id="1_mcbh7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pthmg"]
+atlas = ExtResource("1_mcbh7")
+region = Rect2(0, 0, 377, 234)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqlmp"]
+atlas = ExtResource("1_mcbh7")
+region = Rect2(0, 234, 377, 234)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5r5ba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pthmg")
+}],
+"loop": true,
+"name": &"Rebuilded",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqlmp")
+}],
+"loop": true,
+"name": &"Ruin",
+"speed": 5.0
+}]
+
+[node name="LongHouse" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.474359, 0.474359)
+sprite_frames = SubResource("SpriteFrames_5r5ba")
+animation = &"Ruin"

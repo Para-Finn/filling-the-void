@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdcnlqvv8c5vm"]
+
+[ext_resource type="Script" uid="uid://drm0u64he4mc1" path="res://Scripts/stone_collectable.gd" id="1_h3bi3"]
+[ext_resource type="Texture2D" uid="uid://dj3j1vcrktf23" path="res://Assets/FTVTileMap.png" id="2_rmths"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdy8n"]
+atlas = ExtResource("2_rmths")
+region = Rect2(446.164, 580.778, 67.6805, 51.5365)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46orv"]
+size = Vector2(18, 12)
+
+[node name="Stone" type="Area2D"]
+script = ExtResource("1_h3bi3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(0.29902, 0.29902)
+texture = SubResource("AtlasTexture_fdy8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_46orv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
